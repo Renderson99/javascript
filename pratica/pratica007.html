@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4° pratica do dia de js</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            color: rgb(128, 128, 128);
+            background-image: url(https://thumbs.dreamstime.com/b/estrada-do-asfalto-com-textura-das-marca%C3%A7%C3%B5es-de-estrada-25199138.jpg);
+           
+            
+        }
+        .conteiner {
+            background-color: black;
+            padding: 40px;
+            padding-right: 0px;
+            padding-bottom: 200px;
+            border: 1px solid yellow;
+            border-radius: 10px;
+            transform: translateY(200px);
+            
+        }
+        .titulo {
+            
+            transform: translateX(120px);
+        }
+        #butao {
+            padding: 10px;
+            padding-right: 30px;
+            transform: translateX(150px);
+            margin-top:20px ;
+            
+        } 
+        #res {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="titulo">
+            <h1>DETRAN</h1>
+        </div>
+        <div>
+            Digite a sua velocidade: <input type="number" name="txtvel" id="txtvel"> Km/h
+        </div>
+        <div>
+            <input type="button" value="Verificar" id="butao" onclick="verificar()">
+        </div>
+        <div id="res">
+
+        </div>
+    </div>
+    <script>
+        function verificar() {
+            var txtvel = window.document.getElementById("txtvel")
+            var res = window.document.getElementById("res")
+            var vel = Number(txtvel.value)
+            if (vel > 60) {
+                res.innerHTML += `A sua velocidade é de ${vel}Km/h, Você estar MULTADO!`
+            } else {
+                res.innerHTML += `A sua velocidade é de ${vel}Km/h, Estar tudo certo. `
+            }
+            res.innerHTML += `<p>Dirija sempre com o cinto de segurança</p>`
+
+        }
+    </script>
+</body>
+</html>
