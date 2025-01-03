@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mais Pratica de js</title>
+</head>
+<body>
+    <div>
+        <h1>SOMA</h1>
+    </div>
+    <div>
+        <input type="number" name="box1" id="box1">
+        <input type="number" name="box2" id="box2">
+        <input type="button" value="soma" onclick="soma()">
+    </div>
+    <div id="res">
+        Resultado
+    </div>
+    <script>
+        function soma() {
+            var b1 = window.document.getElementById("box1")
+            var b2 = window.document.getElementById("box2")
+            var res = window.document.getElementById("res")
+            var n1 = Number(b1.value)
+            var n2 = Number(b2.value)
+            var s = n1 + n2
+            res.innerHTML = `A soma dos números ${n1} mais ${n2} é ${s}`
+        }
+    </script>
+</body>
+</html>
