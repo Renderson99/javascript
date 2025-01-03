@@ -5,13 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratica: DETRAN</title>
 </head>
+<style>
+    body {
+        background-color: rgb(0, 0, 0);
+        color: white;
+    }
+</style>
 <body>
     <div>
         <h1>DETRAN</h1>
     </div>
     <div>
-        <input type="number" name="txtvel" id="txtvel">
+        Digite sua velocide: <input type="number" name="txtvel" id="txtvel"> Km/h
         <input type="button" value="Confirmar" onclick="verificar()">
     </div>
+    <div id="res">
+
+    </div>
+    <script>
+        function verificar() {
+            var txtvel = window.document.getElementById("txtvel")
+            var res = window.document.getElementById("res")
+            var vel = Number(txtvel.value)
+            if (vel > 60) {
+                res.innerHTML += `<p>A sua velocidade e de ${vel}Km/h, Você estar MULTADO!</p>`
+            } else {
+                res.innerHTML += `<p>A sua velocidade e de ${vel}Km/h, <strong>Estar tudo certo</strong></p>`
+            }
+            res.innerHTML += `<p>Dirija sempre com o <strong>cinto de segurança</strong></p>`
+        }
+    </script>
 </body>
 </html>
