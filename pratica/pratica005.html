@@ -24,16 +24,14 @@
     </div>
     <script>
         function verificar() {
-            var txtbox = window.document.querySelector("div#txtbox")
-            var pais = "Brasil"
-            if (pais === "Brasil") {
-
-                res.innerHTML += `<p>Vivendo no Brasil você é <strong>Brasilero(a)</strong></p>`
+            var txtbox = window.document.getElementById("txtbox")
+            var pais = txtbox.value
+            var res = window.document.getElementById("res")
+            if (pais.tollwerCase() === "Brasil") {
+                res.innerHTML = `<p>Vivendo no Brasil você é <strong>Brasilero(a)</strong></p>`
                 
             } else {
-
-                res.innerHTML += `<p>Vivendo fora do Brasil Você é <strong>estranjeiro(a)</strong></p>`
-                
+                res.innerHTML = `<p>Vivendo fora do Brasil Você é <strong>estranjeiro(a)</strong></p>`
             }
         }
     </script>
