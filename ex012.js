@@ -1,4 +1,4 @@
-var agora= new Date()
+var agora = new Date()
 var horas = agora.getHours()
 console.log(`Agora são exatamente ${horas} horas.`)
 if (horas < 12) {

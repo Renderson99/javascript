@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de adivinha</title>
+    <style>
+        body {
+            background-color: rgb(55, 55, 55);
+        }
+    </style>
+</head>
+<body>
+    <input type="number" name="palpite" id="palpite">
+    <button type="button" onclick="verificar()">Verificar</button>
+    <p id="resultado">
+
+    </p>
+    <script>
+        let numeroSecreto = Math.floor(Math.rondom() * 100) + 1;
+        function verificar() {
+            let palpiteUsuario = window.document.getElementById("palpite").value;
+            let resultado = window.document.getElementById("resultado");
+
+            if (palpiteUsuario == numeroSecreto) {
+                resultado.innerHTML += "Parabéns! Você acertou!";
+            } else if (palpiteUsuario < numeroSecreto) {
+                resultado.innerHTML += "O número secreto é maior.";
+            } else {
+                resultado.innerHTML += "O número secreto é maior.";
+            }
+        }
+    </script>
+</body>
+</html>
