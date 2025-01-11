@@ -1,10 +1,7 @@
-var b = 1
-do {
-    console.log("ola")
-} while (b <=6)
-    
-/* var c = 1
-while (c <= 10) {
-    console.log(`${c}`)
-    c++
-} */
+console.log("Vai começar...")
+var x = 1
+while (x <= 5) {
+    console.log(x)
+    x = x + 1
+}
+console.log("fim")
