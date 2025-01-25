@@ -19,8 +19,11 @@ function isLista (n, l) {
 }
 
 function adicionar() {
-    if (isNumero(num.value) && !lista(num.value, valores)) {
-        window.alert("deu certo")
+    if (isNumero(num.value) && !inlista(num.value, valores)) {
+       valores.push(Number(num.value))
+       let item = document.createElement("option")
+       item.texte = `Valor ${num.valores} adicionado.`
+       lista.appendChild(item)
     }else {
        window.alert("Valor inválido ou já encontrado na lista.") 
     }
