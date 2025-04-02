@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button style="border: none; color: white; background-color: black; padding: 40px;">clique</button>
+</body>
+<script>
+    let bt = document.querySelector("button")
+
+    bt.addEventListener("click", (clique) => {
+        if (bt.style.backgroundColor === "black") {
+
+            document.body.style.backgroundColor = "black"
+            bt.style.backgroundColor = "white"
+            bt.style.color = "black"
+        } else {
+            document.body.style.backgroundColor = "white"
+            bt.style.backgroundColor = "black"
+            bt.style.color = "white"
+        }
+        
+    })
+</script>
+</html>
