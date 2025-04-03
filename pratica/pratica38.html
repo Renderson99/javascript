@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: rgb(33, 32, 32);
+        }
+
+        #minhaDiv {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            position: absolute;
+            cursor: move;
+            user-select: none;
+        }
+
+        #div2 {
+            width: 100px;
+            height: 100px;
+            background-color: #45db34;
+            position: absolute;
+            cursor: move;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="minhaDiv"></div>
+    <div id="div2"></div>
+
+    <script>
+        const div = document.getElementById('minhaDiv');
+        const div2 = document.getElementById("div2")
+        let estaArrastando = false;
+        let posicaoXAtual = 0;
+        let posicaoYAtual = 0;
+        let posicaoXInicial = 0;
+        let posicaoYInicial = 0;
+
+        // Quando o mouse é pressionado
+        div.addEventListener('mousedown', (e) => {
+            estaArrastando = true;
+            posicaoXInicial = e.clientX - posicaoXAtual;
+            posicaoYInicial = e.clientY - posicaoYAtual;
+            div.style.cursor = 'grabbing';
+        });
+
+        div2.addEventListener('mousedown', (e) => {
+            estaArrastando = true;
+            posicaoXInicial = e.clientX - posicaoXAtual;
+            posicaoYInicial = e.clientY - posicaoYAtual;
+            div2.style.cursor = 'grabbing';
+        });
+
+        // Quando o mouse é movido
+        document.addEventListener('mousemove', (e) => {
+            if (estaArrastando) {
+                e.preventDefault();
+                posicaoXAtual = e.clientX - posicaoXInicial;
+                posicaoYAtual = e.clientY - posicaoYInicial;
+                div.style.left = posicaoXAtual + 'px';
+                div.style.top = posicaoYAtual + 'px';
+
+                div2.style.left = posicaoXAtual + 'px';
+                div2.style.top = posicaoYAtual + 'px';
+            }
+        });
+
+        // Quando o mouse é solto
+        document.addEventListener('mouseup', () => {
+            estaArrastando = false;
+            div.style.cursor = 'move';
+            div2.style.cursor = 'move';
+        });
+
+        // Impede que a div saia da janela (opcional)
+        document.addEventListener('mousemove', (e) => {
+            if (estaArrastando) {
+                const larguraDiv = div.offsetWidth;
+                const alturaDiv = div.offsetHeight;
+                const larguraJanela = window.innerWidth;
+                const alturaJanela = window.innerHeight;
+
+                posicaoXAtual = Math.max(0, Math.min(e.clientX - posicaoXInicial, larguraJanela - larguraDiv));
+
+                posicaoYAtual = Math.max(0, Math.min(e.clientY - posicaoYInicial, alturaJanela - alturaDiv));
+                
+                div.style.left = posicaoXAtual + 'px';
+                div.style.top = posicaoYAtual + 'px';
+
+                div2.style.left = posicaoXAtual + 'px';
+                div2.style.top = posicaoYAtual + 'px';
+            }
+        });
+    </script>
+    
+</body>
+</html>
