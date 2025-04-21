@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="ip_num" id="ip_num">
+    <button id="bt_confirmar">confimar</button>
+    <pre id="resultado"></pre>
+    <img src="" alt="">
+
+    <script>
+        const ip_num = document.querySelector("#ip_num")
+        const bt_confirmar = document.querySelector("bt_confimar")
+        const result = document.querySelector("#resultado")
+        const img = document.querySelector("img")
+
+        async function BuscarAPI(value) {
+            const url = "https://rickandmortyapi.com/api/character/1"
+            await fetch(url)
+            .then(resposta => resposta.json())
+            .then(dados => console.log(dados)
+                return dados
+        )
+        }
+    </script>
+</body>
+</html>
