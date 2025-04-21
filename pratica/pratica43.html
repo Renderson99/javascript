@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usando API JSONPlaceholder</title>
+</head>
+<style>
+    h1 {
+        color: rgb(55, 55, 152);
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input#num {
+        display: flex;
+        justify-self: center;
+        height: 20px;
+        width: 20vw;
+        border: 1px solid rgb(55, 55, 152);
+    }
+     button#bt_procurar {
+        display: flex;
+        justify-self: center;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: rgb(55, 55, 152);
+        color: white;
+        border-radius: 10px;
+        border: none;
+     }
+
+    .conteiner {
+        background-color: rgb(55, 55, 152);
+        color: white;
+        width: 50vw;
+        height: auto;
+        margin: 10px 0px 0px 0px;
+        border-radius: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+
+        display: flex;
+        justify-self: center;
+    }
+    .conteiner > p {
+        padding: 5px;
+    }
+</style>
+<body>
+    <h1>API JSONPlaceholder</h1>
+    <input type="number" name="num" id="num">
+    <button id="bt_procurar">Procurar</button>
+
+    <div  class="conteiner">
+
+    </div>
+
+<script>
+    const conteiner = document.querySelector(".conteiner")
+    const ip_num = document.querySelector("#num")
+    const bt_procurar = document.querySelector("#bt_procurar")
+    
+    bt_procurar.addEventListener("click", () =>{
+        
+        if(ip_num.value) {
+            const res_value = ip_num.value
+
+            const url = `https://jsonplaceholder.typicode.com/todos/${res_value}`
+
+            fetch (url)
+            .then(resposta => resposta.json())
+            .then(json =>{
+                const text = document.createElement("p")
+                text.id = `${res_value}`
+                
+                conteiner.appendChild(text)
+                text.innerHTML = `userId: ${json.userId}<br> Id: ${json.id}<br> Titulo: ${json.title} <br> completed: ${json.completed}`
+
+                conteiner.style.padding = "10px"
+            })
+            .catch(erro => console.log(`erro: ${erro}`))
+
+        } else {
+            alert("[ERRO]: Digite números")
+        }
+        
+    })
+
+        
+    </script>
+</body>
+</html>
